@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional | Liderazgo IT/OT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Urbanist:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* VARIABLES DE DISEÑO (Paleta Industrial/Tecnológica) */
+        :root {
+            --bg-principal: #0f172a;    /* Navy Profundo */
+            --bg-secundario: #1e293b;   /* Slate/Pizarra */
+            --texto-claro: #f8fafc;     /* Blanco Humo */
+            --texto-mutado: #94a3b8;    /* Gris Azulado */
+            --accent-teal: #14b8a6;     /* Teal Eléctrico (IT/OT) */
+            --accent-hover: #0d9488;    /* Teal Oscuro */
+        }
+
+        /* ESTILOS GLOBALES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            font-family: 'Urbanist', sans-serif;
+            font-weight: 700;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* CONTENEDOR AUXILIAR */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            background-color: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .logo span { color: var(--accent-teal); }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-links a:hover {
+            color: var(--accent-teal);
+            transition: color 0.3s;
+        }
+
+        /* SECCIÓN HERO (BIENVENIDA) */
+        .hero {
+            padding: 180px 0 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero h1 span { color: var(--accent-teal); }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--texto-mutado);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        .btn-primary {
+            background-color: var(--accent-teal);
+            color: var(--bg-principal);
+        }
+        .btn-primary:hover { background-color: var(--accent-hover); }
+        .btn-secondary {
+            border: 1px solid var(--texto-mutado);
+        }
+        .btn-secondary:hover { border-color: var(--accent-teal); color: var(--accent-teal); }
+
+        /* SECCIONES COMUNES */
+        section { padding: 100px 0; }
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-teal);
+            margin: 15px auto 0 auto;
+        }
+
+        /* SOBRE MÍ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--texto-mutated);
+            font-size: 1.1rem;
+        }
+
+        /* PILARES / ESPECIALIZACIÓN */
+        .bg-alter { background-color: var(--bg-secundario); }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .pillar-card {
+            background-color: var(--bg-principal);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: transform 0.3s;
+        }
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-teal);
+        }
+        .pillar-card i {
+            font-size: 40px;
+            color: var(--accent-teal);
+            margin-bottom: 20px;
+        }
+        .pillar-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* PROYECTOS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .project-card {
+            background-color: var(--bg-secundario);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .project-content { padding: 30px; }
+        .project-content h3 { color: var(--accent-teal); margin-bottom: 15px; }
+        .project-meta { margin-bottom: 15px; font-size: 0.9rem; color: var(--texto-mutado); }
+        .project-meta strong { color: var(--texto-claro); }
+
+        /* FILOSOFÍA / TESTIMONIO */
+        .quote-section {
+            text-align: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+        }
+        .quote-container h2 {
+            font-size: 2.5rem;
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            font-weight: 300;
+        }
+
+        /* FOOTER / CONTACTO */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            font-size: 24px;
+        }
+        .social-links a:hover { color: var(--accent-teal); }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .about-grid, .projects-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplificación para móvil */
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">ING. CHRÍSTIAN<span>_</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Evolución</a></li>
+                <li><a href="#pilares">Enfoque</a></li>
+                <li><a href="#proyectos">Casos de Éxito</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="inicio">
+        <div class="container">
+            <h1>Convergencia <span>IT / OT</span>: Liderazgo Industrial</h1>
+            <p>Conectando la robustez de las operaciones de campo en Oil & Gas con la analítica inteligente de los Sistemas de Información.</p>
+            <a href="#proyectos" class="btn btn-primary">Ver Casos de Éxito</a>
+            <a href="https://linkedin.com" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </header>
+
+    <section id="sobre-mi" class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 style="font-size: 2.2rem; margin-bottom: 20px;">La evolución de la eficiencia operativa</h2>
+                <p>Con más de 17 años de experiencia en primera línea dentro de la industria de Oil & Gas, me he especializado en sistemas de levantamiento artificial (HPS / SLA). Mi trayectoria en campo me enseñó que la eficiencia mecánica tiene un límite, pero la optimización basada en datos no.</p>
+                <p>Actualmente fusiono mi base en Electromecánica y Mecatrónica con la Ingeniería en Sistemas de Información, creando soluciones donde el software escala el rendimiento de los activos físicos corporativos.</p>
+            </div>
+            <div class="about-text" style="border-left: 4px solid var(--accent-teal); padding-left: 30px;">
+                <h3 style="margin-bottom: 15px; color: var(--accent-teal);">Objetivo Estratégico</h3>
+                <p>Liderar proyectos de transformación operativa donde la tecnología disminuya los costos de fricción administrativa, garantizando además el entrenamiento integral de los nuevos ingenieros que se incorporan al sector técnico.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilares" class="bg-alter">
+        <div class="container">
+            <h2 class="section-title">Pilares de Gestión</h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <h3>Operaciones de Campo (OT)</h3>
+                    <p>Experto en sistemas de levantamiento artificial y despliegue de metodologías Lean (5S) en locaciones de alta exigencia.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fa-solid fa-chart-network"></i>
+                    <h3>Gobernanza de Datos (IT)</h3>
+                    <p>Estructuración y control de información mediante herramientas de software para resolver problemas críticos del negocio.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>Liderazgo y Mentoría</h3>
+                    <p>Capacidad probada de enrollamiento, comunicación asertiva y seguimiento para desarrollar y guiar talento joven.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="container">
+        <h2 class="section-title">Casos de Éxito Reales</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Control de Información & Recuperación Financiera</h3>
+                    <div class="project-meta">Área: <strong>Operaciones HPS / Gobernanza de Datos</strong></div>
+                    <p>Diseño de una arquitectura estructurada de información para el control y rastreo de requisitos pendientes de cobro. Mediante el uso estratégico de hojas de cálculo como motores de gestión, se eliminaron los cuellos de botella informáticos, acelerando directamente la recuperación de la cartera vencida y saneando el flujo de caja operativo.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Optimización Administrativa mediante Filosofía 5S</h3>
+                    <div class="project-meta">Área: <strong>Excelencia Operativa / Gestión de Personal</strong></div>
+                    <p>Despliegue de la filosofía Lean 5S en locaciones operativas de HPS. El enfoque principal no se limitó al orden físico, sino a repotenciar la cultura de trabajo y mentalidad del personal actual. El resultado fue una reducción drástica en la carga administrativa en campo, optimizando el recurso humano existente.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="container quote-container">
+            <h2>"La ingeniería evoluciona cuando la experiencia del campo se conecta con el poder analítico de los datos."</h2>
+            <p style="color: var(--accent-teal); font-weight: 600; letter-spacing: 1px;">- CONVERGENCIA IT / OT</p>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <h2 style="margin-bottom: 10px;">¿Conectamos?</h2>
+            <p style="color: var(--texto-mutado);">Abierto a discusiones estratégicas, transformación operativa y mentoría industrial.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:tu-correo@email.com" title="Enviar Correo"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p style="margin-top: 40px; font-size: 0.8rem; color: var(--texto-mutado);">&copy; 2026 Chrístian. Desarrollado con enfoque de Sistemas.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
